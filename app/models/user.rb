@@ -25,10 +25,25 @@
 #
 
 class User < ApplicationRecord
+  extend FriendlyId
+  friendly_id :uuid, use: [:slugged, :finders]
+
   has_many :articles
   has_many :comments
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  POSSIBLE_ROLES = ["Admin","Non-Admin"]
+
+  def is_admin?
+    if self.roles == 'Admin'
+      true
+    else
+      false
+    end
+  end
+
 end

@@ -12,6 +12,7 @@ gem 'newrelic_rpm'
 gem 'rack-tracker'
 
 gem 'bootstrap-sass'
+gem 'pundit'
 gem 'bootstrap_form', '~> 2.7'
 gem 'devise' # https://github.com/plataformatec/devise#getting-started
 gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'

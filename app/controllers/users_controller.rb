@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  include Pundit
   before_action :set_user, only: [:show]
 
   # GET /users

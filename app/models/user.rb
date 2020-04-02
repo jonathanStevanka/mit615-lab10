@@ -25,9 +25,6 @@
 #
 
 class User < ApplicationRecord
-  extend FriendlyId
-  friendly_id :uuid, use: [:slugged, :finders]
-
   has_many :articles
   has_many :comments
 
@@ -36,7 +33,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  POSSIBLE_ROLES = ["Admin","Non-Admin"]
+  POSSIBLE_ROLES=['Admin', 'Non-Admin']
 
   def is_admin?
     if self.roles == 'Admin'

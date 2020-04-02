@@ -36,7 +36,9 @@
       </table>
 
       <div class="panel-footer">
-        <%= link_to 'New Comment', new_comment_path, class: 'btn btn-success' %>
+        <% if policy(article).new?%>
+          <%= link_to 'New Comment', new_comment_path, class: 'btn btn-success' %>
+        <% end %>
         <%= page_entries_info @comments %>
       </div>
 

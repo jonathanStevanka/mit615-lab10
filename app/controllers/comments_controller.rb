@@ -14,7 +14,6 @@
 #
 
 class CommentsController < ApplicationController
-  include Pundit
   before_action :set_comment, only: %i[show edit update destroy]
 
   # GET /comments
